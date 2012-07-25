@@ -17,5 +17,7 @@ Gem::Specification.new do |gem|
   #gem.files << "man/mason.1"
 
   gem.add_dependency 'thor'
+  gem.add_dependency 'foreman', '~> 0.53.0'
+  gem.add_development_dependency 'rspec', '~> 2.11.0'
 
 end
