@@ -97,7 +97,12 @@ class Mason::CLI < Thor
       puts "  = display: #{ret}"
 
       puts "* compiling..."
-      compile_dir = buildpack.compile(app, options[:env_file], options[:cache])
+      compile_dir, release = buildpack.compile(app, 
+                                options[:env_file], options[:cache])
+
+      File.open("#{options[:cache]}/release.yml", "w") do |f|
+        YAML.dump(release, f)
+      end
 
       print "* packaging... " unless options[:quiet]
       case type.to_sym

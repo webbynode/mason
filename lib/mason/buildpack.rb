@@ -50,7 +50,7 @@ class Mason::Buildpack
     release = YAML.load(`#{script('release')} "#{compile_dir}"`)
     write_env(compile_dir, release, env_file)
     write_procfile(compile_dir, release)
-    compile_dir
+    [compile_dir, release]
   end
 
 private
